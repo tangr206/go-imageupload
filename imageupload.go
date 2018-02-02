@@ -82,7 +82,7 @@ func Process(r *http.Request, field string) (*Image, error) {
 		return nil, err
 	}
 
-	_, _, err = image.Decode(bytes.NewReader(bs))
+	imgInfo, _, err = image.Decode(bytes.NewReader(bs))
 
 	if err != nil {
 		return nil, err
@@ -93,6 +93,8 @@ func Process(r *http.Request, field string) (*Image, error) {
 		ContentType: contentType,
 		Data:        bs,
 		Size:        len(bs),
+		Width:       imgInfo.Width,
+		Height:      imgInfo.Height,
 	}
 
 	return i, nil
