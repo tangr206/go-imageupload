@@ -82,7 +82,7 @@ func Process(r *http.Request, field string) (*Image, error) {
 		return nil, err
 	}
 
-	var imgInfo Image.Image
+	var imgInfo image.Image
 	imgInfo, _, err = image.Decode(bytes.NewReader(bs))
 
 	if err != nil {
