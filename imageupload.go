@@ -6,7 +6,6 @@ import (
 	"encoding/base64"
 	"errors"
 	"fmt"
-	"github.com/nfnt/resize"
 	"image"
 	_ "image/gif"
 	"image/jpeg"
@@ -14,6 +13,8 @@ import (
 	"io/ioutil"
 	"net/http"
 	"strconv"
+
+	"github.com/nfnt/resize"
 )
 
 type Image struct {
@@ -21,6 +22,8 @@ type Image struct {
 	ContentType string
 	Data        []byte
 	Size        int
+	Width       int
+	Height      int
 }
 
 // Save image to file.
